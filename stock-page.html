@@ -61,7 +61,7 @@
                 <td id="currentPrice-aapl"></td>
                 <td id="pnl-aapl"></td>
                 <td>
-                    <button class="order-btn" onclick="displayInfo('msft')">Order</button>
+                    <button class="order-btn" onclick="displayInfo('aapl')">Order</button>
                 </td>
             </tr>
         </table>
@@ -109,17 +109,17 @@
                 <p id="currentPrice" class="add-pad"></p>
                 <p id="quantity-owned" class="add-pad"></p>
                 <form action="" id="form-control">
-                    
-                    <div class="toggle-switch">
-                        <input type="checkbox" id="switch" class="checkbox" />
-                        <label for="switch" class="toggle">
-                    </div>
+
+                    <label for="">BUY</label>
+                    <input type="radio" id="buy-radio" value="buy-radio" name="buy-sell-radio">
+                    <label for="">SELL</label>
+                    <input type="radio" id="sell-radio" value="sell-radio" name="buy-sell-radio">
 
                     <div id="enter-quantity" class="add-pad">
                         <label for="">Enter Quantity</label>
                         <input type="number" name="" id="quantity-space" value="">
                     </div>
-                    <button id="submit-btn">Submit</button>
+                    <button id="submit-btn" onclick="submitRequest()">Submit</button>
                 </form>
         </section>
 

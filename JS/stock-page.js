@@ -70,3 +70,12 @@ function closeDiv(){
     document.getElementById("form-control").style.display = "none";
 }
 
+function submitRequest(){
+    let quantity = document.getElementById("quantity-space").value;
+    let comp = document.getElementById("stock-name").innerHTML.split("(")[1].split(")")[0].toLowerCase();
+    if(document.getElementById("buy-radio").checked){
+        stocks[comp]["quantity"] += quantity;
+        console.log(stocks[comp]["quantity"]);
+    }
+}
+
