@@ -93,19 +93,12 @@ input[type=email], input[type=password]{
     width: 50%;
 }
 
-.signin-button{
+#signin-button{
     padding: 10px;
     border: none;
     background-color: blue;
     border-radius: 7px;
     color: white;
     font-size: 16px;
-}
-
-.submit-button button{
-    transition: all 0.3s ease 0s;
-}
-
-.submit-button button:hover{
-    background-color: rgb(99, 99, 255);
+    cursor: pointer;
 }

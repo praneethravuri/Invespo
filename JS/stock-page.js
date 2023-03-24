@@ -1,3 +1,5 @@
+
+
 let stocks = {
     "msft": {
         "companyName": "Microsoft",
