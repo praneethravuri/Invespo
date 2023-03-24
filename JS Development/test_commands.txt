@@ -1,0 +1,5 @@
+1. Open the JS Development folder in the terminal
+2. Run "npm init -y" to create package.json
+3. In package.json, edit the "test" : "jest" in the "scripts" key
+4. Run "npm i --save-dev jest" to create the node_modules
+5. Finally, run "npm test"

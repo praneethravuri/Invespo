@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+}
+
+table, th, tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    width: 100%;
+}
+
+td, th{
+    text-align: center;
+    padding: 10px;
+}
+
+.domestic, .foreign{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.caption{
+    font-weight: 700;
+}
+
+tr:nth-child(even) {background-color: whitesmoke;}
+
+th{
+    background-color: black;
+    color: wheat;
+    border: 2px solid wheat;
+    border-bottom: 2px solid white;
+}
+
+.popup-button{
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.popup-button button{
+    transition: all 0.3s ease 0s;
+}
+
+.popup-button button:hover{
+    background-color: rgb(99, 99, 255);
+}
+
+/*-----------------------------------------*/
+
+.portfolio{
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+}
+
+.add-pad{
+    padding: 10px;
+}
+
+.add-pad-main{
+    padding: 30px;
+}
+
+.order-btn{
+    border: none;
+    background-color: blue;
+    padding: 7px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.order-box{
+    margin: auto;
+    width: 33%;
+    text-align: center;
+}
+
+.side-by-side{
+    display: flex;
+    justify-content: space-between;
+}
+
+#stock-name{
+    flex: 2;
+    margin-left: 50px;
+}
+
+.close-btn{
+    padding: 0;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#form-control{
+    display: none;
+}
+
+.toggle {
+    position : relative ;
+    display : inline-block;
+    width : 50px;
+    height : 26px;
+    background-color: red;
+    border-radius: 30px;
+    border: 2px solid gray;
+}
+       
+/* After slide changes */
+.toggle:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: gray;
+    top: 1px;
+    left: 1px;
+    transition:  all 0.5s;
+}
+       
+/* Toggle text */
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+       
+/* Checkbox checked effect */
+.checkbox:checked + .toggle::after {
+    left : 25px;
+}
+       
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+    background-color: green;
+}
+       
+/* Checkbox vanished */
+.checkbox {
+    display : none;
+}
+
+#submit-btn{
+    border: 2px solid white;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
