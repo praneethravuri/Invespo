@@ -7,7 +7,7 @@
     <title>Home - Invespo</title>
     <link rel="stylesheet" href="./CSS/navbar.css">
     <link rel="stylesheet" href="./CSS/stock-page.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -26,8 +26,13 @@
     </header>
     <hr class="border-separate">
 
-    <div class="display-username">
-        <p id="username"></p>
+    <div class="username">
+        <p id="display-username"></p>
+    </div>
+
+    <div class="display-portfolios">
+        <button id="port-1" class="port-btn">Portfolio 1</button>
+        <button id="port-2" class="port-btn">Portfolio 2</button>
     </div>
 
     <!--Domestic Stocks Table-->
@@ -114,9 +119,9 @@
                 <p id="quantity-owned" class="add-pad"></p>
                 <form action="" id="form-control">
 
-                    <label for="">BUY</label>
+                    <label for=""><b>BUY</b></label>
                     <input type="radio" id="buy-radio" value="buy-radio" name="buy-sell-radio">
-                    <label for="">SELL</label>
+                    <label for=""><b>SELL</b></label>
                     <input type="radio" id="sell-radio" value="sell-radio" name="buy-sell-radio">
 
                     <div id="enter-quantity" class="add-pad">

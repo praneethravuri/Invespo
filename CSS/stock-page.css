@@ -120,3 +120,38 @@ th{
     border-radius: 10px;
     font-weight: bold;
 }
+
+.username{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 20px;
+}
+
+#display-username{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.display-portfolios{
+    width: 50%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.port-btn{
+    padding: 15px;
+    margin: 10px;
+    background-color: blue;
+    border: 2px solid whitesmoke;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.port-btn:hover{
+    background-color: rgb(150, 150, 252);
+    transition: all 0.3s ease 0s;
+}

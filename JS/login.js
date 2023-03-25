@@ -3,15 +3,18 @@ let emailPassword = new Object();
 emailPassword = {
     "pravuri@gmu.edu" : {
         "password" : "Praneeth1!",
-        "userName" : "Praneeth Ravuri"
+        "name" : "Praneeth Ravuri",
+        "portfolios" : ["pravuri1", "pravuri2"]
     },
     "johndoe@gmu.edu" : {
         "password" : "Johndoe1!",
-        "userName" : "John Doe"
+        "name" : "John Doe",
+        "portfolios" : ["johndoe1"]
     },
     "xyz@gmail.com" : {
         "password" : "xyz1!",
-        "userName" : "XYZ"
+        "name" : "XYZ",
+        "portfolios" : ["xyz1"]
     }
 }
 
@@ -24,6 +27,7 @@ $(document).ready(function(){
             if(emailPassword[email].password === password){
                 $("#message-box").text("Successfully logged in")
                 .css("color", "green");
+                localStorage.setItem("userName", emailPassword[email].name);
                 window.location.href = "stock-page.html";
             }
             else{

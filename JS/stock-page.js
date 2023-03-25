@@ -1,4 +1,17 @@
+const userName = localStorage.getItem("userName");
+document.getElementById("display-username").innerHTML ="Welcome, " +  userName;
 
+$(document).ready(function(){
+    $(".stock-table").hide();
+    $(".caption").hide();
+});
+
+$(document).ready(function(){
+    $(".port-btn").click(function(){
+        $(".stock-table").show();
+        $(".caption").show();
+    })
+})
 
 let stocks = {
     "msft": {
@@ -81,3 +94,7 @@ function submitRequest(){
     }
 }
 
+
+$(document).ready(function(){
+    $(".caption").css("padding", "10px")
+})
