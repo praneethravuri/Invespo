@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Invespo</title>
+    <link rel="stylesheet" href="./CSS/navbar.css">
+    <link rel="stylesheet" href="./CSS/stock-page.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--Navbar-->
+    <header>
+        <a href="./index.html"><h1 class="company-title">INVESPO</h1></a>
+        <nav>
+            <ul class="nav-links">
+                <li class="menu-items"><a href="#">Markets</a></li>
+                <li class="menu-items"><a href="#">Portfolio</a></li>
+                <li class="menu-items"><a href="#">About Us</a></li>
+                <li class="menu-items"><a href="#">Contact Us</a></li>
+                <li class="menu-items"><a href="#">Your Account</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr class="border-separate">
+
+    <div class="username">
+        <p id="display-username"></p>
+    </div>
+
+    <div class="display-portfolios">
+        <button id="port-1" class="port-btn">Portfolio 1</button>
+        <button id="port-2" class="port-btn">Portfolio 2</button>
+    </div>
+
+    <!--Domestic Stocks Table-->
+    <div class="domestic align-center">
+        <h2 class="caption">Domestic Stocks</h2>
+        <table class="stock-table" id="domesticMarket">
+            <tr>
+                <th>Company</th>
+                <th>ticker</th>
+                <th># of Shares</th>
+                <th>Bought On</th>
+                <th>Original Price</th>
+                <th>Current Price</th>
+                <th>PNL</th>
+                <th>Trade</th>
+            </tr>
+            <tr id="comp-msft">
+                <td id="name-msft"></td>
+                <td id="ticker-msft"></td>
+                <td id="quantity-msft"></td>
+                <td id="date-msft"></td>
+                <td id="originalPrice-msft"></td>
+                <td id="currentPrice-msft"></td>
+                <td id="pnl-msft"></td>
+                <td>
+                    <button class="order-btn" onclick="displayInfo('msft')">Order</button>
+                </td>
+            </tr>
+            <tr id="comp-aapl">
+                <td id="name-aapl"></td>
+                <td id="ticker-aapl"></td>
+                <td id="quantity-aapl"></td>
+                <td id="date-aapl"></td>
+                <td id="originalPrice-aapl"></td>
+                <td id="currentPrice-aapl"></td>
+                <td id="pnl-aapl"></td>
+                <td>
+                    <button class="order-btn" onclick="displayInfo('aapl')">Order</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!--Foreign Stocks Table-->
+    <div class="foreign align-center">
+        <h2 class="caption">Foreign Stocks</h2>
+        <table class="stock-table" id="foreignMarket">
+            <tr>
+                <th>Company</th>
+                <th>ticker</th>
+                <th># of Shares</th>
+                <th>Bought On</th>
+                <th>Original Price</th>
+                <th>Current Price</th>
+                <th>PNL</th>
+                <th>Trade</th>
+            </tr>
+            <tr id="comp-ali">
+                <td id="name-ali"></td>
+                <td id="ticker-ali"></td>
+                <td id="quantity-ali"></td>
+                <td id="date-ali"></td>
+                <td id="originalPrice-ali"></td>
+                <td id="currentPrice-ali"></td>
+                <td id="pnl-ali"></td>
+                <td>
+                    <button class="order-btn" onclick="displayInfo('ali')">Order</button>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <br>
+        <br>
+
+        <section>
+            <div class="order-box add-pad" id="order-box">
+                <div class="side-by-side">
+                    <h3 id="stock-name" style="text-decoration: underline;" class="add-pad"></h3>
+                    <button class="close-btn" onclick="closeDiv()" id="close-btn"></button>
+                </div>
+                <p id="originalPrice" class="add-pad"></p>
+                <p id="currentPrice" class="add-pad"></p>
+                <p id="quantity-owned" class="add-pad"></p>
+                <form action="" id="form-control">
+
+                    <label for=""><b>BUY</b></label>
+                    <input type="radio" id="buy-radio" value="buy-radio" name="buy-sell-radio">
+                    <label for=""><b>SELL</b></label>
+                    <input type="radio" id="sell-radio" value="sell-radio" name="buy-sell-radio">
+
+                    <div id="enter-quantity" class="add-pad">
+                        <label for="">Enter Quantity</label>
+                        <input type="number" name="" id="quantity-space" value="">
+                    </div>
+                    <button id="submit-btn" onclick="submitRequest()">Submit</button>
+                </form>
+        </section>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <script src="./JS/stock-page.js"></script>
+</body> 
+</html>
