@@ -1,13 +1,14 @@
 const email = localStorage.getItem("email");
+console.log(email);
 
-$(document).ready(function(){
-    $.getJSON("http://localhost:8080/JSON/stocks.json", function(data){
+$(document).ready(function() {
+    $.getJSON("http://localhost:8080/stocks.json", function(data) {
+        console.log(data);
         console.log(data.email);
-        //let currUser = data[email].name;
-        //console.log(currUser);
-        //$("#display-username").text(currUser);
+      // Do something with the data
     });
 });
+
 
 
 $(document).ready(function(){

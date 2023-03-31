@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.getJSON("http://localhost:8080/JSON/credentials.json", function(data){
+    $.getJSON("http://localhost:8080/credentials.json", function(data){
         $("#signin-button").click(function(){
             let email = $("#email").val();
             let password = $("#pass").val();
@@ -9,6 +9,7 @@ $(document).ready(function(){
                     $("#message-box").text("Successfully logged in")
                     .css("color", "green");
                     localStorage.setItem("email", email);
+                    console.log(email);
                     window.location.href = "stock-page.html";
                 }
                 else{
