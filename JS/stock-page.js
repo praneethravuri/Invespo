@@ -1,5 +1,14 @@
-const userName = localStorage.getItem("userName");
-document.getElementById("display-username").innerHTML ="Welcome, " +  userName;
+const email = localStorage.getItem("email");
+
+$(document).ready(function(){
+    $.getJSON("http://localhost:8080/JSON/stocks.json", function(data){
+        console.log(data.email);
+        //let currUser = data[email].name;
+        //console.log(currUser);
+        //$("#display-username").text(currUser);
+    });
+});
+
 
 $(document).ready(function(){
     $(".stock-table").hide();
