@@ -1,8 +1,12 @@
+/*
 const userName = localStorage.getItem("userName");
 const email = localStorage.getItem("email");
 document.getElementById("display-username").innerHTML ="Welcome, " +  userName;
+*/
 
-let stocks = {
+
+let email = "pravuri@gmu.edu";
+let data = {
     "pravuri@gmu.edu" : {
         "name" : "Praneeth Ravuri",
         "portfolio_1" : {
@@ -188,71 +192,83 @@ let stocks = {
     }
 }
 
+let p1 = data[email].portfolio_1;
+let p2 = data[email].portfolio_2;
+
+let p1Stocks = Object.keys(p1);
+let p2Stocks = Object.keys(p2);
+
+// data => email => portfolio => ticker => company properties
 
 $(document).ready(function(){
-    $(".stock-table").hide();
-    $(".caption").hide();
+    $("#port-1").click(function(){
+        for(let i = 0; i< p1Stocks.length; i++){
+            let currTicker = p1Stocks[i];
+            let currComp = p1[currTicker];
+            let currCompType = p1[currTicker]["type"];
+            if(currCompType === "domestic"){
+                let row = "<tr>"
+                row += "<td>" + currComp["companyName"] + "</td>"
+                row += "<td>" + currComp["ticker"] + "</td>"
+                row += "<td>" + currComp["quantity"] + "</td>"
+                row += "<td>" + currComp["boughtOn"] + "</td>"
+                row += "<td>" + currComp["originalPrice"] + "</td>"
+                row += "<td>" + currComp["currentPrice"] + "</td>"
+                row += "<td>" + "pnl" + "</td>"
+                row += "<td>" + "trade" + "</td>"
+                row += "</tr>";
+                $(".domestic-stocks").append(row);
+            }
+            else if(currCompType === "foreign"){
+                let row = "<tr>"
+                row += "<td>" + currComp["companyName"] + "</td>"
+                row += "<td>" + currComp["ticker"] + "</td>"
+                row += "<td>" + currComp["quantity"] + "</td>"
+                row += "<td>" + currComp["boughtOn"] + "</td>"
+                row += "<td>" + currComp["originalPrice"] + "</td>"
+                row += "<td>" + currComp["currentPrice"] + "</td>"
+                row += "<td>" + "pnl" + "</td>"
+                row += "<td>" + "trade" + "</td>"
+                row += "</tr>";
+                $(".foreign-stocks").append(row);
+            }
+        }
+    });
 });
 
 $(document).ready(function(){
-    $(".port-btn").click(function(){
-        $(".stock-table").show();
-        $(".caption").show();
-    })
-})
+    $("#port-2").click(function(){
+        for(let i = 0; i< p2Stocks.length; i++){
+            let currTicker = p2Stocks[i];
+            let currComp = p2[currTicker];
+            let currCompType = p2[currTicker]["type"];
+            if(currCompType === "domestic"){
+                let row = "<tr>"
+                row += "<td>" + currComp["companyName"] + "</td>"
+                row += "<td>" + currComp["ticker"] + "</td>"
+                row += "<td>" + currComp["quantity"] + "</td>"
+                row += "<td>" + currComp["boughtOn"] + "</td>"
+                row += "<td>" + currComp["originalPrice"] + "</td>"
+                row += "<td>" + currComp["currentPrice"] + "</td>"
+                row += "<td>" + "pnl" + "</td>"
+                row += "<td>" + "trade" + "</td>"
+                row += "</tr>";
+                $(".domestic-stocks").append(row);
+            }
+            else if(currCompType === "foreign"){
+                let row = "<tr>"
+                row += "<td>" + currComp["companyName"] + "</td>"
+                row += "<td>" + currComp["ticker"] + "</td>"
+                row += "<td>" + currComp["quantity"] + "</td>"
+                row += "<td>" + currComp["boughtOn"] + "</td>"
+                row += "<td>" + currComp["originalPrice"] + "</td>"
+                row += "<td>" + currComp["currentPrice"] + "</td>"
+                row += "<td>" + "pnl" + "</td>"
+                row += "<td>" + "trade" + "</td>"
+                row += "</tr>";
+                $(".foreign-stocks").append(row);
+            }
+        }
+    });
+});
 
-function calculatePNL(ticker){
-    let currStock = stocks[ticker];
-    let currPNL = currStock["quantity"] * (currStock["currentPrice"] - currStock["originalPrice"]);
-    return Math.round(currPNL * 100)/100;
-};
-
-let pnl = {
-    "msft" : calculatePNL("msft"),
-    "aapl" : calculatePNL("aapl"),
-    "ali" : calculatePNL("ali")
-};
-
-for(let i in pnl){
-    document.getElementById("name-" + i).innerHTML = stocks[i]["companyName"];
-    document.getElementById("ticker-" + i).innerHTML = stocks[i]["ticker"];
-    document.getElementById("quantity-" + i).innerHTML = stocks[i]["quantity"];
-    document.getElementById("date-" + i).innerHTML = stocks[i]["boughtOn"];
-    document.getElementById("originalPrice-" + i).innerHTML = stocks[i]["originalPrice"];
-    document.getElementById("currentPrice-" + i).innerHTML = stocks[i]["currentPrice"];
-    document.getElementById("pnl-" + i).innerHTML = pnl[i];
-}
-
-function displayInfo(stockName){
-    document.getElementById("order-box").style.border = "2px solid whitesmoke";
-    document.getElementById("stock-name").innerHTML = stocks[stockName]["companyName"] + " (" + stocks[stockName]["ticker"] + ")";
-    document.getElementById("originalPrice").innerHTML = "Original Price: " + stocks[stockName]["originalPrice"];
-    document.getElementById("currentPrice").innerHTML = "Current Price: " + stocks[stockName]["currentPrice"];
-    document.getElementById("quantity-owned").innerHTML = "Quantity: " + stocks[stockName]["quantity"];
-    document.getElementById("close-btn").innerHTML = "Close";
-    document.getElementById("form-control").style.display = "block";
-}
-
-function closeDiv(){
-    document.getElementById("stock-name").innerHTML = "";
-    document.getElementById("originalPrice").innerHTML = "";
-    document.getElementById("currentPrice").innerHTML = "";
-    document.getElementById("quantity-owned").innerHTML = "";
-    document.getElementById("close-btn").innerHTML = "";
-    document.getElementById("order-box").style.border = "none";
-    document.getElementById("form-control").style.display = "none";
-}
-
-function submitRequest(){
-    let quantity = document.getElementById("quantity-space").value;
-    let comp = document.getElementById("stock-name").innerHTML.split("(")[1].split(")")[0].toLowerCase();
-    if(document.getElementById("buy-radio").checked){
-        stocks[comp]["quantity"] += quantity;
-        console.log(stocks[comp]["quantity"]);
-    }
-}
-
-
-$(document).ready(function(){
-    $(".caption").css("padding", "10px")
-})
