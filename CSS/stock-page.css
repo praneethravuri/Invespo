@@ -84,31 +84,20 @@ th{
 }
 
 .order-box{
+    border: 2px solid black;
+    width: 50%;
     margin: auto;
-    width: 33%;
     text-align: center;
 }
 
-.side-by-side{
+#order-box-header{
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 
-#stock-name{
-    flex: 2;
-    margin-left: 50px;
-}
-
-.close-btn{
-    padding: 0;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-#form-control{
-    display: none;
+#order-box-header h1{
+    flex: 1;
 }
 
 

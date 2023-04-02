@@ -36,7 +36,7 @@
         <button id="port-2" class="port-btn">Portfolio 2</button>
     </div>
 
-    <caption class="table-name"><h2>Domestic Stocks</h2></caption>
+    <h2 class="table-name">Domestic Stocks</h2>
     <table class="domestic-stocks">
         <tr>
             <th>Company</th>
@@ -55,7 +55,7 @@
     <br>
     <br>
 
-    <caption class="table-name"><h2>Foreign Stocks</h2></caption>
+    <h2 class="table-name">Foreign Stocks</h2>
     <table class="foreign-stocks">
         <tr>
             <th>Company</th>
@@ -69,37 +69,29 @@
         </tr>
     </table>
 
-        <br>
-        <br>
-        <br>
-
-        <section>
-            <div class="order-box add-pad" id="order-box">
-                <div class="side-by-side">
-                    <h3 id="stock-name" style="text-decoration: underline;" class="add-pad"></h3>
-                    <button class="close-btn" onclick="closeDiv()" id="close-btn"></button>
-                </div>
-                <p id="originalPrice" class="add-pad"></p>
-                <p id="currentPrice" class="add-pad"></p>
-                <p id="quantity-owned" class="add-pad"></p>
-                <form action="" id="form-control">
-
-                    <label for=""><b>BUY</b></label>
-                    <input type="radio" id="buy-radio" value="buy-radio" name="buy-sell-radio">
-                    <label for=""><b>SELL</b></label>
-                    <input type="radio" id="sell-radio" value="sell-radio" name="buy-sell-radio">
-
-                    <div id="enter-quantity" class="add-pad">
-                        <label for="">Enter Quantity</label>
-                        <input type="number" name="" id="quantity-space" value="">
-                    </div>
-                    <button id="submit-btn" onclick="submitRequest()">Submit</button>
-                </form>
-        </section>
-
-    </div>
-
     <br>
+    <br>
+    <br>
+
+    <section class="order-box add-pad">
+        <div id="order-box-header" class="add-pad">
+            <h1 id="stock-name">Test</h1>
+            <button id="close-btn">Close</button>
+        </div>
+        <div id="stock-properties">
+            <p id="quantity" class="add-pad">fds</p>
+            <p id="originalPrice" class="add-pad">cgdfg</p>
+            <p id="currentPrice" class="add-pad">dfgdfg</p>
+        </div>
+        <div id="quantity-space" class="add-pad">
+            <label for="">Enter Quantity</label>
+            <input type="number" name="" id="">
+        </div>
+        <div id="submit-space" class="add-pad">
+            <button id="submit-btn">Submit</button>
+        </div>
+    </section>
+
     <br>
     <br>
     <script type="module" src="./JS/stock-page.js"></script>

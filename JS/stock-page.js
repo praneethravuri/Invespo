@@ -4,6 +4,13 @@ const email = localStorage.getItem("email");
 document.getElementById("display-username").innerHTML ="Welcome, " +  userName;
 */
 
+$(document).ready(function(){
+    $(".table-name").hide();
+    $(".domestic-stocks").hide();
+    $(".foreign-stocks").hide();
+    $(".order-box").hide();
+})
+
 
 let email = "pravuri@gmu.edu";
 let data = {
@@ -200,23 +207,44 @@ let p2Stocks = Object.keys(p2);
 
 // data => email => portfolio => ticker => company properties
 
+function calculatePNL(currComp){
+    let currPNL = currComp["quantity"] * (currComp["currentPrice"] - currComp["originalPrice"]);
+    return Math.round(currPNL * 100) / 100;
+}
+
+function displayOrderBox(currTicker, currCompName, currCompQuantity, currCompOP, currCompCP){
+    console.log(currCompCP);
+    document.getElementById("stock-name").innerHTML = currCompName + " (" + currTicker + ")";
+    document.getElementById("originalPrice").innerHTML = currCompOP;
+    document.getElementById("currentPrice").innerHTML = currCompCP;
+
+}
+
 $(document).ready(function(){
     $("#port-1").click(function(){
+        $(".domestic-stocks").find("tr:gt(0)").remove();
+        $(".foreign-stocks").find("tr:gt(0)").remove();
+        $(".domestic-stocks").show();
+        $(".foreign-stocks").show();
         for(let i = 0; i< p1Stocks.length; i++){
-            let currTicker = p1Stocks[i];
-            let currComp = p1[currTicker];
-            let currCompType = p1[currTicker]["type"];
+            let currTicker = p1Stocks[i]; // msft
+            let currComp = p1[currTicker]; // {msft: {...}}
+            let currCompType = p1[currTicker]["type"]; // domestic
+            let currCompName = p1[currTicker]["companyName"]; // microsoft
+            let currCompQuantity = p1[currTicker]["quantity"]; // quantity
+            let currCompOP = p1[currTicker]["originalPrice"]; // original price
+            let currCompCP = p1[currTicker]["currentPrice"]; // current price
+            let currCompDate = p1[currTicker]["boughtOn"]; // date
             if(currCompType === "domestic"){
                 let row = "<tr>"
-                row += "<td>" + currComp["companyName"] + "</td>"
-                row += "<td>" + currComp["ticker"] + "</td>"
-                row += "<td>" + currComp["quantity"] + "</td>"
-                row += "<td>" + currComp["boughtOn"] + "</td>"
-                row += "<td>" + currComp["originalPrice"] + "</td>"
-                row += "<td>" + currComp["currentPrice"] + "</td>"
-                row += "<td>" + "pnl" + "</td>"
-                row += "<td>" + "trade" + "</td>"
-                row += "</tr>";
+                row += "<td>" + currCompName + "</td>"
+                row += "<td>" + currTicker + "</td>"
+                row += "<td>" + currCompQuantity + "</td>"
+                row += "<td>" + currCompDate + "</td>"
+                row += "<td>" + currCompOP + "</td>"
+                row += "<td>" + currCompCP + "</td>"
+                row += "<td>" + calculatePNL(currComp)  + "</td>"
+                row += "<td> <button class='order-btn' onclick='displayOrderBox(\"" + currTicker + "\", \"" + currCompName + "\", \"" + currCompQuantity + "\", \"" + currCompOP + "\", \"" + currCompCP + "\")'>Order</button> </td>"
                 $(".domestic-stocks").append(row);
             }
             else if(currCompType === "foreign"){
@@ -227,7 +255,7 @@ $(document).ready(function(){
                 row += "<td>" + currComp["boughtOn"] + "</td>"
                 row += "<td>" + currComp["originalPrice"] + "</td>"
                 row += "<td>" + currComp["currentPrice"] + "</td>"
-                row += "<td>" + "pnl" + "</td>"
+                row += "<td>" + calculatePNL(currComp)  + "</td>"
                 row += "<td>" + "trade" + "</td>"
                 row += "</tr>";
                 $(".foreign-stocks").append(row);
@@ -238,6 +266,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#port-2").click(function(){
+        $(".domestic-stocks").find("tr:gt(0)").remove();
+        $(".foreign-stocks").find("tr:gt(0)").remove();
+        $(".domestic-stocks").show();
+        $(".foreign-stocks").show();
         for(let i = 0; i< p2Stocks.length; i++){
             let currTicker = p2Stocks[i];
             let currComp = p2[currTicker];
@@ -250,7 +282,7 @@ $(document).ready(function(){
                 row += "<td>" + currComp["boughtOn"] + "</td>"
                 row += "<td>" + currComp["originalPrice"] + "</td>"
                 row += "<td>" + currComp["currentPrice"] + "</td>"
-                row += "<td>" + "pnl" + "</td>"
+                row += "<td>" + calculatePNL(currComp)  + "</td>"
                 row += "<td>" + "trade" + "</td>"
                 row += "</tr>";
                 $(".domestic-stocks").append(row);
@@ -263,7 +295,7 @@ $(document).ready(function(){
                 row += "<td>" + currComp["boughtOn"] + "</td>"
                 row += "<td>" + currComp["originalPrice"] + "</td>"
                 row += "<td>" + currComp["currentPrice"] + "</td>"
-                row += "<td>" + "pnl" + "</td>"
+                row += "<td>" + calculatePNL(currComp)  + "</td>"
                 row += "<td>" + "trade" + "</td>"
                 row += "</tr>";
                 $(".foreign-stocks").append(row);
