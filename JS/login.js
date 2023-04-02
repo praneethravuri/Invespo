@@ -9,6 +9,7 @@ $(document).ready(function(){
                     $("#message-box").text("Successfully logged in")
                     .css("color", "green");
                     localStorage.setItem("userName", data[email].name);
+                    localStorage.setItem("email", data[email].email);
                     window.location.href = "stock-page.html";
                 }
                 else{
