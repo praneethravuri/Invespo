@@ -152,7 +152,7 @@ th{
 }
 
 #search-input{
-    border: 2px solid whitesmoke;
+    border: 2px solid black;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -160,4 +160,26 @@ th{
 
 #stock-lookup-table{
     margin-top: 10px;
+}
+
+#order-btn{
+    padding: 5px;
+    border: none;
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.main-order-box{
+    width: 50%;
+    margin: auto;
+    border: 2px solid whitesmoke;
+    text-align: center;
+}
+
+#close-btn{
+    background-color: white;
+    border: none;
+    text-decoration: underline;
 }

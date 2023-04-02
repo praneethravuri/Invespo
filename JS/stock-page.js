@@ -1,18 +1,15 @@
-/*
 const userName = localStorage.getItem("userName");
 const email = localStorage.getItem("email");
 document.getElementById("display-username").innerHTML ="Welcome, " +  userName;
-*/
+
 
 $(document).ready(function(){
     $(".table-name").hide();
     $(".domestic-stocks").hide();
     $(".foreign-stocks").hide();
-    $(".order-box").hide();
-})
+});
 
-
-let email = "pravuri@gmu.edu";
+document.getElementById("order-box").style.display = "none";
 let data = {
     "pravuri@gmu.edu" : {
         "name" : "Praneeth Ravuri",
@@ -269,8 +266,13 @@ function calculatePNL(currCompQuantity, currCompCP, currCompOP){
     return Math.round(currPNL * 100) / 100;
 }
 
-function displayOrderBox(currTicker, currCompName, currCompCP, currCompOP){
-    console.log(currCompName);
+function displayOrderBox(currTicker, currCompName, currCompCP, currCompOP, currCompQuantity){
+    document.getElementById("order-box").style.display = "block";
+    document.getElementById("stock-name").innerHTML = currCompName + " (" + currTicker + ")";
+    document.getElementById("quantity").innerHTML = "";
+    document.getElementById("currentPrice").innerHTML ="Current Price: " + currCompCP;
+    document.getElementById("originalPrice").innerHTML ="Original Price: " + currCompOP;
+    document.getElementById("quantity").innerHTML = "Quantity: " + currCompQuantity;
 }
 
 $(document).ready(function(){
@@ -289,6 +291,7 @@ $(document).ready(function(){
             let currCompCP = companies[currTicker]["currentPrice"]; // current price
             let currCompDate = p1[currTicker]["boughtOn"]; // date
             if(currCompType === "domestic"){
+                let className = "order-btn-" + currTicker;
                 let row = "<tr>"
                 row += "<td>" + currCompName + "</td>"
                 row += "<td>" + currTicker + "</td>"
@@ -297,9 +300,15 @@ $(document).ready(function(){
                 row += "<td>" + currCompOP + "</td>"
                 row += "<td>" + currCompCP + "</td>"
                 row += "<td>" + calculatePNL(currCompQuantity, currCompCP, currCompOP)  + "</td>"
+                row += "<td><button id = 'order-btn' class=" + className + ">Order</button></td>"
                 $(".domestic-stocks").append(row);
+
+                $(".order-btn-" + currTicker).click(function(){
+                    displayOrderBox(currTicker, currCompName, currCompCP, currCompOP, currCompQuantity);
+                });
             }
             else if(currCompType === "foreign"){
+                let className = "order-btn-" + currTicker;
                 let row = "<tr>"
                 row += "<td>" + currCompName + "</td>"
                 row += "<td>" + currTicker + "</td>"
@@ -308,7 +317,12 @@ $(document).ready(function(){
                 row += "<td>" + currCompOP + "</td>"
                 row += "<td>" + currCompCP + "</td>"
                 row += "<td>" + calculatePNL(currCompQuantity, currCompCP, currCompOP)  + "</td>"
+                row += "<td><button id = 'order-btn' class=" + className + ">Order</button></td>"
                 $(".foreign-stocks").append(row);
+
+                $(".order-btn-" + currTicker).click(function(){
+                    displayOrderBox(currTicker, currCompName, currCompCP, currCompOP, currCompQuantity);
+                });
             }
         }
     });
@@ -330,6 +344,7 @@ $(document).ready(function(){
             let currCompCP = companies[currTicker]["currentPrice"]; // current price
             let currCompDate = p2[currTicker]["boughtOn"]; // date
             if(currCompType === "domestic"){
+                let className = "order-btn-" + currTicker;
                 let row = "<tr>"
                 row += "<td>" + currCompName + "</td>"
                 row += "<td>" + currTicker + "</td>"
@@ -338,9 +353,15 @@ $(document).ready(function(){
                 row += "<td>" + currCompOP + "</td>"
                 row += "<td>" + currCompCP + "</td>"
                 row += "<td>" + calculatePNL(currCompQuantity, currCompCP, currCompOP)  + "</td>"
+                row += "<td><button id = 'order-btn' class=" + className + ">Order</button></td>"
                 $(".domestic-stocks").append(row);
+
+                $(".order-btn-" + currTicker).click(function(){
+                    displayOrderBox(currTicker, currCompName, currCompCP, currCompOP, currCompQuantity);
+                });
             }
             else if(currCompType === "foreign"){
+                let className = "order-btn-" + currTicker;
                 let row = "<tr>"
                 row += "<td>" + currCompName + "</td>"
                 row += "<td>" + currTicker + "</td>"
@@ -349,8 +370,19 @@ $(document).ready(function(){
                 row += "<td>" + currCompOP + "</td>"
                 row += "<td>" + currCompCP + "</td>"
                 row += "<td>" + calculatePNL(currCompQuantity, currCompCP, currCompOP)  + "</td>"
+                row += "<td><button id = 'order-btn' class=" + className + ">Order</button></td>"
                 $(".foreign-stocks").append(row);
+
+                $(".order-btn-" + currTicker).click(function(){
+                    displayOrderBox(currTicker, currCompName, currCompCP, currCompOP, currCompQuantity);
+                });
             }
         }
+    });
+});
+
+$(document).ready(function(){
+    $("#close-btn").click(function(){
+        $("#order-box").hide();
     });
 });
