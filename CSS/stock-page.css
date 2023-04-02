@@ -144,3 +144,20 @@ th{
     background-color: rgb(150, 150, 252);
     transition: all 0.3s ease 0s;
 }
+
+.search-box-space{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#search-input{
+    border: 2px solid whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#stock-lookup-table{
+    margin-top: 10px;
+}

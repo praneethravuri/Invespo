@@ -1,0 +1,110 @@
+{
+    "msft": {
+        "companyName": "Microsoft",
+        "originalPrice":329.01,
+        "currentPrice": 252.51,
+        "type" : "domestic"
+    },
+    "aapl": {
+        "companyName": "Apple",
+        "originalPrice":138.20,
+        "currentPrice": 144.49,
+        "type" : "domestic"
+    },
+    "ali": {
+        "companyName": "Alibaba Holding Company",
+        "originalPrice":91.98,
+        "currentPrice": 110.83,
+        "type" : "foreign"
+    },
+    "nflx": {
+        "companyName": "Netflix",
+        "originalPrice": 558.10,
+        "currentPrice": 584.50,
+        "type": "domestic"
+    },
+    "googl": {
+        "companyName": "Alphabet",
+        "originalPrice": 2735.73,
+        "currentPrice": 2216.00,
+        "type": "domestic"
+    },
+    "baba": {
+        "companyName": "Alibaba Group",
+        "originalPrice": 219.78,
+        "currentPrice": 233.40,
+        "type": "foreign"
+    },
+    "amzn": {
+        "companyName": "Amazon",
+        "originalPrice": 3155.91,
+        "currentPrice": 3052.03,
+        "type": "domestic"
+    },
+    "nvda": {
+        "companyName": "Nvidia",
+        "originalPrice": 208.79,
+        "currentPrice": 195.22,
+        "type": "domestic"
+    },
+    "tcehy": {
+        "companyName": "Tencent Holdings",
+        "originalPrice": 70.41,
+        "currentPrice": 75.66,
+        "type": "foreign"
+    },
+    "tsla": {
+        "companyName": "Tesla",
+        "originalPrice": 748.74,
+        "currentPrice": 670.00,
+        "type": "domestic"
+    },
+    "nflx": {
+        "companyName": "Netflix",
+        "originalPrice": 573.24,
+        "currentPrice": 584.50,
+        "type": "domestic"
+    },
+    "baba": {
+        "companyName": "Alibaba Group",
+        "originalPrice": 221.11,
+        "currentPrice": 233.40,
+        "type": "foreign"
+    },
+    "amzn": {
+        "companyName": "Amazon",
+        "originalPrice": 3605.94,
+        "currentPrice": 3381.00,
+        "type": "domestic"
+    },
+    "nke": {
+        "companyName": "Nike",
+        "originalPrice": 152.50,
+        "currentPrice": 165.20,
+        "type": "domestic"
+    },
+    "baba": {
+        "companyName": "Alibaba Group",
+        "originalPrice": 219.78,
+        "currentPrice": 233.40,
+        "type": "foreign"
+    },
+    "nvda": {
+        "companyName": "NVIDIA",
+        "originalPrice": 339.79,
+        "currentPrice": 329.50,
+        "type": "domestic"
+    },
+    "tsm": {
+        "companyName": "Taiwan Semiconductor Manufacturing Company",
+        "originalPrice": 111.44,
+        "currentPrice": 126.80,
+        "type": "foreign"
+    },
+    "crm": {
+        "companyName": "Salesforce",
+        "originalPrice": 267.68,
+        "currentPrice": 276.60,
+        "type": "domestic"
+    }
+}
