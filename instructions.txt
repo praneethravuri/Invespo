@@ -1,0 +1,6 @@
+1. In the terminal, run the command "http-server --cors -c-1"
+2. "-c-1" is used to clear the cache on loading the webpage
+3. The login details can be found in the credentials.json file
+4. When signed in, 2 portfolio buttons are shown. When clicked, they display the portfolio table of the user
+5. Search box is present below the portfolio buttons which is used to search for a given stock
+6. Order buttons are present for each stocks which can be used to buy or sell stocks
